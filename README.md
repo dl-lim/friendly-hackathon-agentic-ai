@@ -12,7 +12,7 @@ Please refer to https://github.com/dl-lim/friendly-hackathon-analytics if you ar
 
 When you have completed your work, open a PR to the repository
 
-**Disclaimer**
+**Disclaimer**  
 The content and processes in this Hackathon are completely made up. Any similarities to real world processes are purely coincidental.
 
 # Proactive Risk Notification Agent
@@ -58,7 +58,7 @@ See `data/sample_data.json` for:
 
 ## Files
 
-** These files are samples, and you may overwrite or make your own **
+**These files are samples, and you may overwrite or make your own**
 - `src/agent.py` - Agent stubs (triage, drafting)
 - `src/data_loader.py` - Load sample data
 - `src/examples.py` - Examples and experiments
