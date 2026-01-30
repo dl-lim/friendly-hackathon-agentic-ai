@@ -39,7 +39,12 @@ Human-in-the-loop is encouraged.
 ## Quick Start
 
 ```bash
-python src/examples.py  # See it in action
+# Set up environment with uv
+uv venv
+uv pip install -e .
+
+# Run the example
+uv run python -m src.examples
 ```
 
 ## Data
@@ -63,3 +68,87 @@ See `data/sample_data.json` for:
 - `src/data_loader.py` - Load sample data
 - `src/examples.py` - Examples and experiments
 - `ARCHITECTURE.md` - Architecture ideas
+
+---
+
+## A Note on "Agentic" AI
+
+The current starter code in `src/agent.py` uses class names like `RiskTriageAgent` and `NotificationDraftingAgent`, but **the implementation is rule-based if/else logic**, not truly agentic behavior.
+
+### What Makes Something "Agentic"?
+
+True agentic AI typically includes:
+
+1. **LLM-Powered Reasoning** - The agent uses a language model to think through problems, not hard-coded rules
+2. **Tool Use** - The agent can call external tools/functions to gather information and take actions
+3. **Observable Thinking** - You can see the agent's reasoning process, not just the final output
+4. **Autonomous Decision-Making** - The agent decides what to do next based on context, not a fixed script
+
+### The Gap in the Starter Code
+
+```python
+# Current approach (rule-based):
+def should_open_case(self, finding, customer, asset):
+    if severity in ['high', 'critical'] and confidence == 'high':
+        return True
+    return False
+
+# Agentic approach (LLM-powered):
+# The agent would:
+# 1. Look up customer context using a tool
+# 2. Research the CVE using a tool
+# 3. Check industry threat intel using a tool
+# 4. Reason about all the context
+# 5. Make a decision with confidence level and explanation
+```
+
+### Making It Truly Agentic
+
+Consider using a framework like **[Pydantic AI](https://ai.pydantic.dev/)** to build real agents:
+
+```bash
+uv pip install pydantic-ai
+```
+
+```python
+from pydantic_ai import Agent
+
+# Define structured output
+class TriageDecision(BaseModel):
+    should_notify: bool
+    confidence: float
+    reasoning: str
+
+# Create an agent with tools
+agent = Agent(
+    'openai:gpt-4o-mini',
+    result_type=TriageDecision,
+    system_prompt="You are a security triage analyst..."
+)
+
+@agent.tool
+def lookup_customer(customer_id: str) -> dict:
+    """Look up customer profile and risk level."""
+    return get_customer_by_id(customers, customer_id)
+
+@agent.tool
+def lookup_cve(cve_id: str) -> dict:
+    """Get CVE details from vulnerability database."""
+    # Query NVD or internal CVE database
+    ...
+
+# Run the agent - it will use tools and reason
+result = agent.run_sync(f"Evaluate this finding: {finding}")
+print(result.data.reasoning)  # See the agent's thinking!
+```
+
+### Hackathon Challenge
+
+Your challenge: Transform this rule-based system into a truly agentic one! Consider:
+
+- Which decisions benefit from LLM reasoning vs. simple rules?
+- What tools should agents have access to?
+- How do you make the agent's thinking visible?
+- Where do humans need to stay in the loop?
+
+Good luck!
