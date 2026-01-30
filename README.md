@@ -6,7 +6,7 @@ The challenges before you today are open ended. You may bring your own perspecti
 
 The key goal here is to learn, work with great people, and have fun.
 
-This repository is for an Agentic AI project.
+This repository is for the Agentic AI project.
 
 Please refer to https://github.com/dl-lim/friendly-hackathon-analytics if you are after the Analytics Project.
 
