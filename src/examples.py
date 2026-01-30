@@ -1,8 +1,8 @@
 """
 Example usage and experiments.
 """
-from data_loader import load_sample_data, get_customer_by_id, get_asset_by_id
-from agent import ProactiveAgent
+from .data_loader import load_sample_data, get_customer_by_id, get_asset_by_id
+from .agent import ProactiveAgent
 
 
 def example_basic_workflow():

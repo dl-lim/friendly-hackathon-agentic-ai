@@ -1,3 +1,20 @@
+# Hackathon Guidelines
+
+Welcome to The Friendly Data Meetup's Hackathon. This session is made possible by CFC Underwriting.
+
+The challenges before you today are open ended. You may bring your own perspective, your own tech stack, make your own assumptions about the data and collaborate with others on a project together
+
+The key goal here is to learn, work with great people, and have fun.
+
+This repository is for an Agentic AI project.
+
+Please refer to https://github.com/dl-lim/friendly-hackathon-analytics if you are after the Analytics Project.
+
+When you have completed your work, open a PR to the repository
+
+**Disclaimer**
+The content and processes in this Hackathon are completely made up. Any similarities to real world processes are purely coincidental.
+
 # Proactive Risk Notification Agent
 
 Design an **AI agent system** that helps a cyber insurance company notify customers about risks on their internet-facing assets.
@@ -41,6 +58,7 @@ See `data/sample_data.json` for:
 
 ## Files
 
+** These files are samples, and you may overwrite or make your own **
 - `src/agent.py` - Agent stubs (triage, drafting)
 - `src/data_loader.py` - Load sample data
 - `src/examples.py` - Examples and experiments
