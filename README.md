@@ -10,7 +10,7 @@ This repository is for an Agentic AI project.
 
 Please refer to https://github.com/dl-lim/friendly-hackathon-analytics if you are after the Analytics Project.
 
-When you have completed your work, open a PR to the repository
+When you have completed your work, open a PR to the repository. See [GitHub's guide on contributing to projects](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project) for how to fork, make changes, and submit a PR
 
 **Disclaimer**  
 The content and processes in this Hackathon are completely made up. Any similarities to real world processes are purely coincidental.
